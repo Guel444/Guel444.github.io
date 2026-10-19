@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Miguel Almeida Ricci – Programador freelancer</title>
+<meta name="description" content="Programador freelancer: automações, aplicativos para desktop e celular e sites sob medida, em Python, Flutter e JavaScript.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Literata:opsz,wght@7..72,400;7..72,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --ink:#0f1b3d; --muted:#566384; --line:#dde3ee; --blue:#2f5bea; --mark:#ffd84d; --soft:#f3f6fb;
+  --head:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+  --body:"Literata",Georgia,serif;
+  --mono:"JetBrains Mono",Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font:400 1.0625rem/1.75 var(--body);overflow-x:hidden}
+a{color:var(--ink);text-decoration-color:var(--mark);text-decoration-thickness:3px;text-underline-offset:4px}
+a:hover{color:var(--blue)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:3px}
+.wrap{max-width:920px;margin:0 auto;padding:0 28px}
+
+header.top{position:absolute;top:0;left:0;right:0;z-index:2}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:26px;padding-bottom:26px;font:500 1rem var(--head)}
+header.top a{text-decoration:none}
+header.top .name{font-weight:800}
+header.top nav{display:flex;gap:22px}
+
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:pan-y}
+.hero .wrap{position:relative;z-index:1;pointer-events:none;padding-top:110px;padding-bottom:80px;width:100%}
+.hero a{pointer-events:auto}
+h1{font:800 clamp(2.5rem,9vw,6.4rem)/.98 var(--head);letter-spacing:-.035em;margin-bottom:28px}
+h1 em{font-style:normal;background:linear-gradient(transparent 64%,var(--mark) 64%)}
+.hero p{max-width:44ch;color:var(--muted);font-size:1.15rem;margin-bottom:32px}
+.btn{display:inline-block;font:500 1rem var(--head);padding:13px 26px;border-radius:6px;background:var(--ink);color:#fff;text-decoration:none;transition:background .15s}
+.btn:hover{background:var(--blue);color:#fff}
+
+section{padding:88px 0;border-bottom:1px solid var(--line)}
+h2{font:800 clamp(1.8rem,4vw,2.5rem)/1.1 var(--head);letter-spacing:-.02em;margin-bottom:14px}
+.lead{color:var(--muted);max-width:54ch;margin-bottom:44px}
+h3{font:800 1.2rem/1.25 var(--head);margin-bottom:8px}
+
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.services div{border-top:3px solid var(--ink);padding-top:18px}
+.services p,.proj p{color:var(--muted);font-size:1rem}
+
+.proj{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:32px 0;border-top:1px solid var(--line)}
+.proj:last-of-type{border-bottom:1px solid var(--line)}
+.proj .meta{font:500 .9rem/1.5 var(--mono);color:var(--blue);display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.proj .meta span{background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:2px 10px}
+.proj h3 a{text-decoration-thickness:2px}
+.proj p+p{margin-top:8px}
+
+.steps{list-style:none;padding:0;counter-reset:s;display:grid;grid-template-columns:repeat(2,1fr);gap:36px 44px}
+.steps li{counter-increment:s;border-top:3px solid var(--ink);padding-top:18px}
+.steps li::before{content:counter(s);display:block;font:800 2rem/1 var(--head);color:var(--blue);margin-bottom:10px}
+.steps p{color:var(--muted);font-size:1rem}
+
+.stack-groups{display:grid;gap:28px}
+.stack-groups h3{font-size:1rem;color:var(--muted);margin-bottom:12px}
+.stack{display:flex;flex-wrap:wrap;gap:10px}
+.stack span{font:500 .95rem var(--mono);background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:6px 14px}
+
+.contact{border-bottom:0}
+.contact .big{font:800 clamp(1.25rem,4.4vw,2.8rem)/1.15 var(--head);letter-spacing:-.02em;word-break:break-word}
+.contact .big a{text-decoration-thickness:5px}
+.links{display:flex;gap:10px 26px;flex-wrap:wrap;margin-top:26px;font:500 1.05rem var(--head)}
+footer{padding:0 0 48px;color:var(--muted);font-size:.9rem}
+
+@media (max-width:760px){
+  .services,.steps{grid-template-columns:1fr}
+  .proj{grid-template-columns:1fr;gap:8px}
+  .proj .meta{flex-direction:row;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+  section{padding:60px 0}
+  .wrap{padding:0 22px}
+  header.top nav{gap:14px;font-size:.95rem}
+  .hero{min-height:88vh}
+  .hero .wrap{padding-top:96px;padding-bottom:56px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="name" href="#">Miguel</a>
+    <nav aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <canvas id="c" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <h1>Código que<br>resolve o seu <em>problema</em>.</h1>
+    <p>Sou Miguel, programador freelancer. Automações, aplicativos para desktop e celular e sites sob medida, com prazo e preço combinados antes de começar.</p>
+    <a class="btn" href="#contato">Pedir um orçamento</a>
+  </div>
+</div>
+
+<main class="wrap">
+  <section id="servicos">
+    <h2>O que eu faço</h2>
+    <p class="lead">Projetos pequenos e médios, entregues em etapas para você acompanhar.</p>
+    <div class="services">
+      <div><h3>Automações</h3><p>Scripts em Python que assumem o trabalho repetitivo: organizar arquivos, tratar planilhas, coletar e juntar dados.</p></div>
+      <div><h3>Apps desktop e celular</h3><p>Programas para Windows e aplicativos Android, com interface própria, feitos para o seu fluxo de trabalho.</p></div>
+      <div><h3>Sites</h3><p>Páginas leves, responsivas e acessíveis, em HTML, CSS e JavaScript puro, sem peso desnecessário.</p></div>
+    </div>
+  </section>
+
+  <section id="projetos">
+    <h2>Projetos</h2>
+    <p class="lead">Coisas que construí do zero. O código está no GitHub.</p>
+
+    <article class="proj">
+      <div class="meta"><span>Python</span><span>PySide6</span><span>Flutter</span><span>SQLite</span></div>
+      <div>
+        <h3><a href="https://github.com/Guel444">NovelAI Reader</a></h3>
+        <p>Leitor de livros digitais com tradução automática para 45 idiomas, em duas versões: desktop para Windows e aplicativo Android.</p>
+        <p>Lê EPUB, PDF e TXT e traz glossário para manter os nomes originais, grifos com comentários, favoritos, notas, estatísticas de leitura, modo foco, backup e tradução de livros inteiros em segundo plano com cache.</p>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="meta"><span>JavaScript</span><span>HTML</span><span>CSS</span></div>
+      <div>
+        <h3><a href="https://github.com/Guel444">Edge Case</a></h3>
+        <p>Jogo de plataforma e quebra-cabeça para navegador em que o tamanho da janela é o próprio nível: redimensionar a janela muda o mundo.</p>
+        <p>Mais de 36 fases, com pixel art própria, feito sem bibliotecas nem engines.</p>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="meta"><span>Python</span><span>Pygame</span><span>Matplotlib</span></div>
+      <div>
+        <h3><a href="https://github.com/Guel444">Simulador de evolução</a></h3>
+        <p>Ecossistema artificial em que herbívoros e predadores têm genética herdável, mutação e reprodução sexuada, com estações, biomas, genealogia e gráficos em tempo real.</p>
+        <p>Cobertura de mais de 50 testes automatizados e experimentos reproduzíveis por configuração.</p>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="meta"><span>JavaScript</span><span>HTML</span><span>CSS</span></div>
+      <div>
+        <h3><a href="https://github.com/Guel444">Laboratório de física 2D</a></h3>
+        <p>Sandbox no navegador com motor de física próprio: colisões, atrito, molas, juntas, zonas de força, zoom e salvamento de cenas.</p>
+      </div>
+    </article>
+  </section>
+
+  <section id="processo">
+    <h2>Como funciona</h2>
+    <p class="lead">Um processo simples, para você saber o que esperar em cada etapa.</p>
+    <ol class="steps">
+      <li><h3>Conversa</h3><p>Você explica o que precisa e eu faço as perguntas para entender o problema.</p></li>
+      <li><h3>Proposta</h3><p>Envio escopo, prazo e preço por escrito, antes de começar.</p></li>
+      <li><h3>Desenvolvimento</h3><p>Entregas parciais para você testar e pedir ajustes ao longo do caminho.</p></li>
+      <li><h3>Entrega</h3><p>Projeto pronto, com código organizado e instruções de uso.</p></li>
+    </ol>
+  </section>
+
+  <section id="stack">
+    <h2>Ferramentas</h2>
+    <p class="lead">Escolho a tecnologia pelo que o projeto precisa.</p>
+    <div class="stack-groups">
+      <div>
+        <h3>Linguagens</h3>
+        <div class="stack"><span>Python</span><span>JavaScript</span><span>TypeScript</span><span>Dart</span><span>SQL</span><span>HTML</span><span>CSS</span></div>
+      </div>
+      <div>
+        <h3>Frameworks e bibliotecas</h3>
+        <div class="stack"><span>React</span><span>Node.js</span><span>Flutter</span><span>PySide6</span><span>Pandas</span><span>Pygame</span></div>
+      </div>
+      <div>
+        <h3>Dados e ferramentas</h3>
+        <div class="stack"><span>SQLite</span><span>APIs REST</span><span>Git</span><span>GitHub</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="contact">
+    <h2>Vamos conversar?</h2>
+    <p class="lead">Conte em poucas linhas o que você precisa e eu respondo o quanto antes.</p>
+    <div class="big"><a href="mailto:miguelalmeidaricci639@gmail.com">miguelalmeidaricci639@gmail.com</a></div>
+    <div class="links">
+      <a href="https://wa.me/5522981513502">WhatsApp: (22) 98151-3502</a>
+      <a href="https://github.com/Guel444">GitHub: Guel444</a>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">© <span id="y"></span> Miguel Almeida Ricci</footer>
+
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+
+/* Hero: pontos que se movem e se ligam, e se afastam do cursor */
+(function(){
+  var c=document.getElementById('c'),x=c.getContext('2d'),W,H,dpr=Math.min(devicePixelRatio||1,2);
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pts=[],mouse={x:-999,y:-999},LINK=120;
+  function size(){
+    var r=c.getBoundingClientRect();W=r.width;H=r.height;
+    c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
+    var N=Math.round(Math.min(90,W*H/14000));
+    pts=[];for(var i=0;i<N;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.6,vy:(Math.random()-.5)*.6});
+  }
+  function draw(){
+    x.clearRect(0,0,W,H);
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i],dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.hypot(dx,dy);
+      if(d<140&&d>0){p.vx+=dx/d*.05;p.vy+=dy/d*.05}
+      p.vx*=.99;p.vy*=.99;
+      if(Math.hypot(p.vx,p.vy)<.15){p.vx+=(Math.random()-.5)*.05;p.vy+=(Math.random()-.5)*.05}
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>W)p.vx*=-1;
+      if(p.y<0||p.y>H)p.vy*=-1;
+      for(var j=i+1;j<pts.length;j++){
+        var q=pts[j],l=Math.hypot(p.x-q.x,p.y-q.y);
+        if(l<LINK){x.strokeStyle='rgba(47,91,234,'+(.28*(1-l/LINK))+')';x.lineWidth=1;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.stroke()}
+      }
+      x.fillStyle='#2f5bea';x.beginPath();x.arc(p.x,p.y,2.2,0,7);x.fill();
+    }
+    if(!reduce)requestAnimationFrame(draw);
+  }
+  var hero=c.parentElement;
+  hero.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top});
+  hero.addEventListener('pointerleave',function(){mouse.x=mouse.y=-999});
+  var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(size,150)});
+  size();draw();
+})();
+</script>
+</body>
+</html>
